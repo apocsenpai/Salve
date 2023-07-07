@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main: theme('colors.watermelon.main');
+  --alternative: theme('colors.watermelon.alternative');
+  --emphasis: theme('colors.watermelon.emphasis');
+  --dark-main: theme('colors.watermelon.dark-main');
+}
+
+[data-theme='blueberry'] {
+  --main: theme('colors.blueberry.main');
+  --alternative: theme('colors.blueberry.alternative');
+  --emphasis: theme('colors.blueberry.emphasis');
+  --dark-main: theme('colors.blueberry.dark-main');
+}
+
+[data-theme='banana'] {
+  --main: theme('colors.banana.main');
+  --alternative: theme('colors.banana.alternative');
+  --emphasis: theme('colors.banana.emphasis');
+  --dark-main: theme('colors.banana.dark-main');
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--dark-main);
+    border-radius: 100vh;
+    border: 3px solid var(--alternative);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--emphasis);
+  }
+}
