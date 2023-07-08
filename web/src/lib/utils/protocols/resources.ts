@@ -1,7 +1,7 @@
 export interface UserJwtPayload {
-  profileId: number
-  username: string
-  coins: number
-  hasProfile: boolean
-  hasAddress: boolean
+	profileId: number;
+	username: string;
+	coins: number;
+	hasProfile: boolean;
+	hasAddress: boolean;
 }

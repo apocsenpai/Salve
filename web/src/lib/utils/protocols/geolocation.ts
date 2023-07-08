@@ -1,6 +1,6 @@
 export interface LocationCoordinates {
-  position: {
-    lat: number
-    lng: number
-  }
+	position: {
+		lat: number,
+		lng: number,
+	};
 }
