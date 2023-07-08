@@ -1,12 +1,35 @@
 {
   "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "transformer-module"
+      },
+      {
+        "transform": "transformer2",
+        "extraOption": 123
+      },
+      {
+        "transform": "trans-with-mapping",
+        "resolvePathAliases": true
+      },
+      {
+        "transform": "esm-transformer",
+        "isEsm": true
+      },
+      {
+        "transform": "transformer-module5",
+        "transformProgram": true
+      }
+    ],
     "outDir": "dist",
     "esModuleInterop": true,
     "module": "CommonJS",
     "moduleResolution": "Node",
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": [
+        "*"
+      ]
     }
   },
   "ts-node": {
