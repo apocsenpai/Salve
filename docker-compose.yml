@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgis/postgis:15-3.3
+    container_name: postgres
+    ports:
+      - 5433:5432
+    env_file:
+      - server/.env
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+
+  api:
+    container_name: api
+    build: ./server
+    ports:
+      - 5000:5000
+    depends_on:
+      - postgres
+    env_file:
+      - server/.env
+
+  next-app:
+    container_name: next-app
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:5000
+        NEXT_PUBLIC_GOOGLE_API_KEY: AIzaSyCzdgtdvhW9Fjr0U19dR5bhc7nX67pkA7Y
+    volumes:
+      - ./web/src:/app/src
+      - ./web/public:/app/public
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 8080:80
+    depends_on:
+      - postgres
+      - api
+      - next-app
+
+volumes:
+  postgres-volume:
