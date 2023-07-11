@@ -14,6 +14,7 @@ export interface UserForm {
 }
 
 export interface AddressForm {
+	[key: string]: string | undefined | number;
 	cep: string;
 	neighborhood: string;
 	street: string;

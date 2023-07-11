@@ -80,7 +80,3 @@ export async function finishSave(
 
 	return response.data
 }
-
-interface MessageInputData {
-	message: string;
-}

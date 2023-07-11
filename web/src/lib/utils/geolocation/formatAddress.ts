@@ -9,7 +9,7 @@ export function formatGeocoderResultToAddress(
 		sublocality,
 		cityData,
 		stateData,
-		country,
+		_country,
 		zipCode,
 	] = addressComponents
 

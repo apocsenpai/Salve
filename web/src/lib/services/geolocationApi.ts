@@ -16,12 +16,13 @@ export async function getGeocoderByCoordinates(latLng: string) {
 			`https://maps.googleapis.com/maps/api/geocode/json?${queryString}`
 		)
 	).data
+
 	return response.results[0]
 }
 
 export async function getLatitudeAndLogitudeByAddress(address: AddressForm) {
 	const queryAddress = Object.keys(address)
-		.map((key: string) => address[key as keyof AddressForm])
+		.map((key: string) => address[key])
 		.join('+')
 
 	const queryString = new URLSearchParams({
