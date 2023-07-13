@@ -13,7 +13,7 @@ jobs:
           envkey_POSTGRES_USER: "postgres"
           envkey_POSTGRES_PASSWORD: "root"
           envkey_POSTGRES_DB: "salve_db_test"
-          envkey_DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/salve_db_test"
+          envkey_DATABASE_URL: "postgresql://postgres:root@postgres:5432/salve_db_test"
           directory: server
           file_name: .env.test
       - name: Run tests
