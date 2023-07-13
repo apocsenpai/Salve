@@ -28,9 +28,6 @@ services:
     build:
       context: ./web
       dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_API_BASE_URL: http://localhost:5000
-        NEXT_PUBLIC_GOOGLE_API_KEY: AIzaSyCzdgtdvhW9Fjr0U19dR5bhc7nX67pkA7Y
     volumes:
       - ./web/src:/app/src
       - ./web/public:/app/public
@@ -38,7 +35,7 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - 8080:80
+      - 80:80
     depends_on:
       - postgres
       - api
