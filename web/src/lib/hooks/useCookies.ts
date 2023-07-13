@@ -1,3 +1,4 @@
+import { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
 import { cookies } from 'next/headers'
 
 export default function useCookies() {
@@ -7,5 +8,9 @@ export default function useCookies() {
 		return cookieList.get(key)?.value
 	}
 
-	return { getByKey }
+	const setCookie = (options: RequestCookie) => {
+		return cookieList.set(options)
+	}
+
+	return { getByKey, setCookie }
 }
