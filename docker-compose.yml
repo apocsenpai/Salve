@@ -32,14 +32,24 @@ services:
       - ./web/src:/app/src
       - ./web/public:/app/public
 
+  openssl:
+    build: ./openssl
+    volumes:
+      - ssl-certs:/certs
+
   nginx:
     build: ./nginx
     ports:
       - 80:80
+      - 443:443
+    volumes:
+      - ssl-certs:/certs
     depends_on:
       - postgres
       - api
       - next-app
-
+      - openssl
+      
 volumes:
   postgres-volume:
+  ssl-certs:
