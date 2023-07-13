@@ -1,11 +1,14 @@
 services:
   postgres:
-    image: postgis/postgis:15-3.3
+    build:
+      context: ./server
+      dockerfile: Dockerfile.pg
     container_name: postgres
+    restart: always
     ports:
       - 5433:5432
     env_file:
-      - server/.env
+      - ./server/.env
     volumes:
       - postgres-volume:/var/lib/postgresql/data
 
@@ -14,6 +17,7 @@ services:
     build: ./server
     ports:
       - 5000:5000
+    restart: unless-stopped
     depends_on:
       - postgres
     env_file:
