@@ -49,7 +49,7 @@ Salve is an application that provides solutions for everyone. It was made with t
 
 ```
 
-## Requirements
+## Requirements (Loading...)
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Docker engine](https://docs.docker.com/engine/install/).
 
